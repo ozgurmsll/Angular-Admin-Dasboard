@@ -1,0 +1,61 @@
+
+  <div class="container">
+    <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+      <div class="row gx-lg-5 align-items-center mb-5">
+        <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+
+
+          <div class="resim">
+            <img class="resim" src="" alt="" />
+
+          </div>
+        </div>
+
+
+        <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+          <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+          <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+
+          <div class="card bg-glass">
+            <div class="card-body px-4 py-5 px-md-5">
+              <form #form="ngForm" (ngSubmit)="handleAuth(form)">
+
+                <div class="alert-alert-danger bg-danger text-white text-center me-auto justify-content-center mb-3" *ngIf="error">{{error}}</div>
+                <!-- Email input -->
+                <div *ngIf="!isLoginMode" class="form-outline mb-4">
+                  <input type="name" required name ngModel name="name" id="name" class="form-control">
+
+                  <label class="form-label" for="name">Ad SoyAd</label>
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="email" required email ngModel name="email" id="email" class="form-control">
+
+                  <label class="form-label" for="email">Email address</label>
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                  <input type="password" required minlength="6" ngModel name="password" id="password" class="form-control">
+                  <label class="form-label" for="password">Password</label>
+                </div>
+
+
+                <!-- Checkbox -->
+
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary" [disabled]="form.invalid">{{ isLoginMode ? "Giriş Yap": "Hesap Oluştur" }}</button>
+                <button *ngIf="isAdmin" type="button" class="btn btn-outline-primary" (click)="toogleMode()">
+                    {{ isLoginMode ? "Birini Kayıt et": "Zaten Hesabım Var" }}
+                </button>
+                <!-- Register buttons -->
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+

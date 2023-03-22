@@ -1,0 +1,115 @@
+.Ürün
+{
+  text-align: center;
+  width: 180px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: rgb(	220, 220, 220);
+}
+.Kategori
+{
+  text-align: center;
+  width: 180px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: rgb(	220, 220, 220);
+}
+
+.ad{
+  width: 500px;
+}
+.col
+{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+#a{
+  width: 500px !important;
+  border-radius:10px !important
+}
+.Depo
+{
+  text-align: center;
+  width: 180px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: rgb(	220, 220, 220);
+}
+#birim{
+  width: 500px;
+  height: 400px;
+
+}
+.x{
+  margin-left:30px;
+  margin-top: 10px;
+}
+#price{
+  margin-left: 25px;
+  width: 270px;
+  height:30px
+}
+.birimfiyat{
+  margin-left: 25px;
+  margin-top: 10px;
+}
+
+.adet{
+  margin-top: 25px;
+  margin-left: 100px;
+}
+#adetkg{
+  width: 270px;
+  height: 30px;
+  margin-left: 100px;
+}
+.kayit{
+  width: 285px;
+  height: 50px;
+  margin-top: -150px;
+  margin-left: 615px;
+
+}
+.miktar{
+  margin-left: -270px;
+  margin-top: 70px;
+}
+#miktar{
+  margin-top: 150px;
+  margin-left: -55px;
+  width: 270px;
+  height:30px
+
+}
+.marka{
+  margin-top: -100px;
+  margin-left: 19px;
+
+}
+#marka{
+  margin-top: -30px;
+  margin-left: -60px;
+  width: 270px;
+  height:30px
+}
+.form-check-input{
+  width: 20px;
+  height: 20px;
+}
+.namespan{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(107, 107, 107);
+font-size: 25px;
+border: 0.5px solid;
+border-radius: 10px;
+}
+.inputcl{
+  display: flex;
+  justify-content: center;
+  border: 0px;
+  color: rgb(54, 54, 54);
+
+}

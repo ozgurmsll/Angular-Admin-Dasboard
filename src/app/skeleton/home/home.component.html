@@ -1,0 +1,141 @@
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Anasayfa</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+      </ol>
+    </nav>
+  </div>
+  <section class="section dashboard">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-xxl-3 col-md-6">
+            <div class="card info-card revenue-card">
+              <div class="card-body">
+                <h5 class="card-title">Kasa <span>| Dış Depo</span></h5>
+                <div class="d-flex align-items-center">
+                  <div
+                    class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                  >
+                    <i class="ri-coin-fill"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>
+                      {{
+                        disDepototal
+                          | currency : "TRY" : "symbol-narrow" : "1.2-2"
+                      }}
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xxl-3 col-md-6">
+            <div class="card info-card revenue-card">
+              <div class="card-body">
+                <h5 class="card-title">Kasa <span>| Merkez Depo</span></h5>
+                <div class="d-flex align-items-center">
+                  <div
+                    class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                  >
+                    <i class="ri-community-fill"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>
+                      {{
+                        Merkeztotal
+                          | currency : "TRY" : "symbol-narrow" : "1.2-2"
+                      }}
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xxl-3 col-md-6">
+            <div class="card info-card revenue-card">
+              <div class="card-body">
+                <h5 class="card-title">x <span>| Bu Ay</span></h5>
+                <div class="d-flex align-items-center">
+                  <div
+                    class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                  >
+                    <i class="ri-community-fill"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>
+                      {{
+                        medicaltotal
+                          | currency : "TRY" : "symbol-narrow" : "1.2-2"
+                      }}
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xxl-3 col-md-6">
+            <div class="card info-card revenue-card">
+              <div class="card-body">
+                <h5 class="card-title">x<span>| Bu Ay </span></h5>
+                <div class="d-flex align-items-center">
+                  <div
+                    class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                  >
+                    <i class="ri-community-fill"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>
+                      {{
+                        livtotal | currency : "TRY" : "symbol-narrow" : "1.2-2"
+                      }}
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h4 class="card-title giris">Giriş Toplamları Karşılaştırma</h4>
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="basechart" style="display: flex">
+                  <canvas
+                    baseChart
+                    class="chart"
+                    [datasets]="radarChartDatasets"
+                    [options]="radarChartOptions"
+                    [labels]="radarChartLabels"
+                    [type]="'radar'"
+                  >
+                  </canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h4 class="card-title cikis">Çıkış Toplamları Karşılaştırma</h4>
+      <div class="d-flex col-12">
+        <div class="d-flex cardbar col-xl-12">
+          <div class="denee">
+            <canvas
+              class=""
+              baseChart
+              [data]="barChartData"
+              [options]="barChartOptions"
+              [plugins]="barChartPlugins"
+              [legend]="barChartLegend"
+              [type]="'bar'"
+            >
+            </canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

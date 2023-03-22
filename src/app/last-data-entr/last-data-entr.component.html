@@ -1,0 +1,207 @@
+<!-- <main id="main" class="main" >
+  <div class="card recent-sales overflow-auto">
+    <div class="filter">
+
+
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Son Yapılan Giriş İşlemleri </h5>
+
+      <table class="table table-borderless datatable">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Tarih</th>
+            <th scope="col">İşlemi Yapan</th>
+
+            <th scope="col">Ürün</th>
+            <th scope="col">Fiyat</th>
+            <th scope="col">Adet/kg</th>
+            <th scope="col">Konum</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of productEntries.slice(-15)let i = index; ">
+          <tr >
+            <th scope="row"><a href="#">{{ i+1  }}</a></th>
+            <td> {{ item.tarih }} </td>
+            <td>
+              {{ item.name }}
+            </td>
+            <td>
+              {{ item.pName }}
+            </td>
+            <td>
+              {{ item.total }} ₺
+            </td>
+            <td>{{ item.adetkg }}</td>
+            <td><span class="badge bg-success">{{ item.direction ==='giriş' ? 'giriş':'giriş'}}</span> <a (click)="updateProduct(item.id)"><i  class="bi update bi-arrow-repeat"></i></a>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card recent-sales overflow-auto">
+    <div class="filter">
+
+      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+        <li class="dropdown-header text-start">
+          <h6>Filter</h6>
+        </li>
+        <li><a class="dropdown-item" href="#">Today</a></li>
+        <li><a class="dropdown-item" href="#">This Month</a></li>
+        <li><a class="dropdown-item" href="#">This Year</a></li>
+      </ul>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Son Yapılan Çıkış(Liv) İşlemleri </h5>
+
+      <table class="table table-borderless datatable">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Tarih</th>
+            <th scope="col">İşlemi Yapan</th>
+            <th scope="col">Ürün</th>
+            <th scope="col">Fiyat</th>
+            <th scope="col">Adet/kg</th>
+
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of productoutput.slice(-10)let i = index; ">
+          <tr >
+            <th scope="row"><a href="#">{{ i+1  }}</a></th>
+            <td> {{ item.tarih }} </td>
+            <td>
+              {{ item.pName }}
+            </td>
+            <td>
+              {{ item.total }}
+            </td>
+            <td>{{ item.adetkg }}</td>
+            <td>{{ item.depo }}
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card recent-sales overflow-auto">
+    <div class="filter">
+
+      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+        <li class="dropdown-header text-start">
+          <h6>Filter</h6>
+        </li>
+        <li><a class="dropdown-item" href="#">Today</a></li>
+        <li><a class="dropdown-item" href="#">This Month</a></li>
+        <li><a class="dropdown-item" href="#">This Year</a></li>
+      </ul>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Son Yapılan Çıkış(Medical) İşlemleri </h5>
+
+      <table class="table table-borderless datatable">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Tarih</th>
+            <th scope="col">İşlemi Yapan</th>
+            <th scope="col">Ürün</th>
+            <th scope="col">Fiyat</th>
+            <th scope="col">Adet/kg</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of productoutputMedi.slice(-10)let i = index; ">
+          <tr >
+            <th scope="row"><a href="#">{{ i+1  }}</a></th>
+            <td> {{ item.tarih }} </td>
+            <td>
+              {{ item.pName }}
+            </td>
+            <td>
+              {{ item.total }}
+            </td>
+            <td>{{ item.adetkg }}</td>
+            <td><span class="badge bg-success">{{ item.direction ==='giriş' ? 'cıkış':'cıkış'}}</span> <a (click)="updateProduct(item.id)"><i  class="bi update bi-arrow-repeat"></i></a>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </main> -->
+  <main id="main" class="main" >
+    <h1>Son Yapılan Giriş İşlemleri</h1>
+
+    <div class="mat-elevation-z8">
+
+      <table mat-table [dataSource]="datasource">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="no">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let productEntries"> {{productEntries.no}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> İşlemi Yapan Kişi </th>
+          <td mat-cell *matCellDef="let productEntries"> {{productEntries.name}} </td>
+        </ng-container>
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef> Fiyat </th>
+          <td mat-cell *matCellDef="let productEntries"> {{productEntries.price}} ₺</td>
+        </ng-container>
+        <ng-container matColumnDef="Ürün">
+          <th mat-header-cell *matHeaderCellDef> Ürün </th>
+          <td mat-cell *matCellDef="let productEntries"> {{productEntries.pName}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef> Tarih </th>
+          <td mat-cell *matCellDef="let productEntries"> {{productEntries.date}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="adetkg">
+          <th mat-header-cell *matHeaderCellDef> adet/kg </th>
+          <td mat-cell *matCellDef="let productEntries"> {{productEntries.adetkg}} {{productEntries.birim}} </td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>İşlemler</th>
+          <td mat-cell *matCellDef="let x">
+            <a
+              mat-raised-button
+              style="margin-right: 3px;"
+              color="primary"
+              (click)="updateProduct(x.id)"
+            >
+              <mat-icon>update</mat-icon> Güncelle
+            </a>
+            <button
+              class="ml-4"
+              mat-raised-button
+              color="warn"
+              (click)="deleteProductEntry(x.id)"
+            >
+              <mat-icon >delete</mat-icon > Sil
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                     showFirstLastButtons
+                     aria-label="Select page of periodic elements">
+      </mat-paginator>
+    </div>
+    </main>

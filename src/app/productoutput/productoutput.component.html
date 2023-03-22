@@ -1,0 +1,214 @@
+<main id="main" class="main">
+  <section class="h-100 bg-white">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col">
+          <div class="card card-registration my-4">
+            <div class="row g-0">
+              <div class="col-12">
+                <div class="card-body p-md-5 text-black">
+                  <h3 class="mb-5 text-uppercase text-center">
+                    Ürün Çıkış Formu
+                  </h3>
+
+                  <div class="row">
+                    <div class="col-12">
+                      <div
+                        class="d-flex justify-content-center align-items-center mb-2"
+                      >
+                        <div class="form-outline">
+                          <div class="namespan">
+                            <input #name id="name" class="inputcl" value="{{ x }}">
+
+                          </div>
+                          <div id="a" class="input-group mb-3 p-2 a">
+                            <div class="input-group-append">
+                              <span class="input-group-text">Tarih</span>
+                            </div>
+                            <input
+                              #date
+                              type="date"
+                              name="tarih"
+                              id="tarih"
+                              class="form-control"
+                              required=""
+                            />
+                            <div class="input-group-append"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mb-5 butonlar">
+                      <div class="col">
+                        <label class="form-label col-md-3 mb-2" for="depo"
+                          >Depo:</label
+                        >
+                        <select #depo class="select Depo">
+                          <option>MerkezDepo</option>
+                          <option>DışDepo</option>
+                        </select>
+                      </div>
+                      <div class="col">
+                        <label class="form-label col-md-3 mb-2" for="konum"
+                          >Konum:</label
+                        >
+                        <select #konum class="select Depo">
+                          <option>Liv</option>
+                          <option>Medical</option>
+                        </select>
+                      </div>
+
+
+                      <div class="col">
+                       <label class="form-label col-md-3 mb-2" for="kategori"
+                          >Kategori:</label
+                        >
+                        <select #kategori class="select Kategori" [(ngModel)]="selectedCategoryId" (ngModelChange)="selectedCategoryId ? filterByCategory(selectedCategoryId) : null">
+                          <option value="">All categories</option>
+                          <option *ngFor="let category of categories" [value]="category.id">
+                            {{category.name}}
+                          </option>
+                        </select>
+                      </div>
+
+                      <div class="col">
+                        <label class="form-label col-md-3 mb-2" for="urun"
+                          >Ürün:</label
+                        >
+                        <select
+                          id="productName"
+                          #productName
+                          class="select Ürün"
+                        >
+                          <option *ngFor="let product of filteredProducts">
+                            {{product.name}}
+
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="card" id="birim">
+                      <div class="card-body">
+                        <h1 class="card-title">Birim Ürün İçin</h1>
+                        <div class="col">
+                          <label class="form-label marka" for="marka"
+                            >Marka:</label
+                          >
+                          <div class="form-outline">
+                            <input
+                              #marka
+                              type="text"
+                              id="marka"
+                              class="form-control form-control-lg"
+                            />
+                          </div>
+
+                          <label class="form-label miktar" for="miktar"
+                            >Miktar:</label
+                          >
+                          <div class="form-outline">
+                            <input
+                              #miktar
+                              type="text"
+                              id="miktar"
+                              class="form-control form-control-lg"
+                            />
+                          </div>
+
+                          <div #birim class="row col-md-3 x">
+                            <label class="mb-3" for="birim">Birim:</label>
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="flexRadioDefault"
+                              id="flexRadioDefault1"
+                              [(ngModel)]="selectedUnit"
+                              value="kg"
+                              (change)="unitChanged()"
+                            />
+                            <label
+                              class="form-check-label mx-4 "
+                              for="flexRadioDefault1"
+                              >kg</label
+                            >
+
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="flexRadioDefault"
+                              id="flexRadioDefault2"
+                              [(ngModel)]="selectedUnit"
+                              value="gr"
+                              (change)="unitChanged()"
+                              checked
+                            />
+                            <label
+                              class="form-check-label mx-4"
+                              for="flexRadioDefault2"
+                              >gr</label
+                            >
+
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="flexRadioDefault"
+                              id="flexRadioDefault3"
+                              [(ngModel)]="selectedUnit"
+                              value="litre"
+                              (change)="unitChanged()"
+                            />
+                            <label
+                              class="form-check-label mx-4"
+                              for="flexRadioDefault3"
+                              >litre</label
+                            >
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                    <div class="form-outline col-md-6 mb-4">
+                      <label class="form-label adet" for="form3Example8"
+                        >Adet</label
+                      >
+                      <input
+                        #adetkg
+                        required
+                        type="text"
+                        id="adetkg"
+                        value="0"
+                        class="form-control form-control-lg"
+                      />
+                    </div>
+
+                    <button
+                      type="button"
+                      class="btn btn-success kayit"
+                      (click)="output(
+                        name,
+                        date,
+                        depo,
+
+                        miktar,
+                        kategori,
+                        adetkg,
+                        productName,
+                        marka,
+                        selectedUnit,
+                        konum
+                      )"
+                    >
+                      Çıkış
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,43 @@
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Ürün Kayıt</h1>
+  </div>
+  <div class="col-lg-8">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Ürün Kayıt</h5>
+        <form>
+          <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Kategori</label>
+            <div class="col-lg-8">
+              <select
+                #deneme
+                class="form-select"
+                aria-label="Default select example"
+              >
+                <option *ngFor="let item of categories">{{ item.name }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="label" for="urunadi">Ürün İsmi</label>
+            <input
+              #urunadi
+              type="text"
+              class="form-control ürüni"
+              id="urunadi"
+              placeholder="Ürün İsmini Giriniz"
+            />
+          </div>
+          <button
+            type="button"
+            class="btn btn-primary mt-3"
+            (click)="add(urunadi, deneme)"
+          >
+            Kaydet
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>

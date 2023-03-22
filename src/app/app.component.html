@@ -1,0 +1,4 @@
+<app-header *ngIf="!(_router.url === '/pages-register' || _router.url === '/pages-login' || _router.url === '/pages-error404' || _router.url === '/'|| _router.url === '/register')" ></app-header>
+<app-sidebar *ngIf="!(_router.url === '/pages-register' || _router.url === '/pages-login' || _router.url === '/pages-error404'|| _router.url === '/'|| _router.url === '/register')" ></app-sidebar>
+<router-outlet></router-outlet>
+

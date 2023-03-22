@@ -1,0 +1,95 @@
+<aside id="sidebar" class="sidebar">
+  <ul class="sidebar-nav" id="sidebar-nav">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/home">
+        <i class="ri-home-2-line"></i> <span>Anasayfa</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link collapsed"
+        data-bs-target="#components-nav"
+        data-bs-toggle="collapse"
+        href="#"
+      >
+        <i class="ri-arrow-left-right-line" ></i><span>Ürün Giriş/Çıkış</span
+        ><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul
+        id="components-nav"
+        class="nav-content collapse"
+        data-bs-parent="#sidebar-nav"
+      >
+        <li>
+          <a routerLink="/productentry" routerLinkActive="active">
+            <i class="ri-arrow-right-down-line"></i><span>Ürün Giriş</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/productoutput" routerLinkActive="active">
+            <i class="ri-arrow-right-up-line"></i><span>Ürün Çıkış</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link collapsed"
+        data-bs-target="#components-nav2"
+        data-bs-toggle="collapse"
+        href="#"
+      >
+        <i class="ri-ball-pen-line"></i><span>Ürün/Kategori Kayıt</span
+        ><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul
+        id="components-nav2"
+        class="nav-content collapse"
+        data-bs-parent="#sidebar-nav"
+      >
+        <li>
+          <a routerLink="/categories"routerLinkActive="active"
+            ><i class="ri-play-list-add-fill"></i><span>Kategori Kayıt</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/product"routerLinkActive="active"
+            ><i class="ri-play-list-add-fill"></i><span>Ürün Kayıt</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link collapsed"
+        data-bs-target="#forms-nav"
+        data-bs-toggle="collapse"
+        href="#"
+      >
+        <i class="bi bi-journal-text"></i><span>Ürün Takip</span
+        ><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul
+        id="forms-nav"
+        class="nav-content collapse"
+        data-bs-parent="#sidebar-nav"
+      >
+        <li>
+          <a routerLink="/stock" routerLinkActive="active">
+            <i class="bi bi-circle"></i><span>Stok Takip</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/last-data-entry" routerLinkActive="active">
+            <i class="bi bi-circle"></i><span>Son Yapılan İşlemler</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/form-editors" routerLinkActive="active">
+            <i class="bi bi-circle"></i><span>Form Editors</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</aside>
